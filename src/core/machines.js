@@ -155,7 +155,7 @@ export const MachineHandler = {
 
   // Time in seconds to reduce the missing amount by a factor of two
   get scaleTimeForDM() {
-    return 600;
+    return 600 / DualityUpgrade(20).effectOrDefault(1);
   },
 
   gainedDualMachines(diff) {
