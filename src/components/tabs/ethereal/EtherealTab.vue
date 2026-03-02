@@ -62,7 +62,12 @@ export default {
         <span class="c-normal-ethereal-text">
           Ethereal Power income is based on Celestial Points, Singularities, and Reality Machine amounts.
         </span>
-        <span v-if="isBetter">{{ extraPowerDisplay }}</span>
+        <span
+          v-if="isBetter"
+          class="c-normal-ethereal-text"
+        >
+          {{ extraPowerDisplay }}
+        </span>
       </div>
       <div>
         <span class="c-normal-ethereal-text">Your Cosmic Sector is </span>
