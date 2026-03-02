@@ -430,11 +430,11 @@ export const InfinityDimensions = {
   },
 
   get capIncrease() {
-    return Math.floor(Tesseracts.capIncrease());
+    return Decimal.floor(Tesseracts.capIncrease());
   },
 
   get totalDimCap() {
-    return this.HARDCAP_PURCHASES + this.capIncrease;
+    return new Decimal(this.HARDCAP_PURCHASES).add(this.capIncrease);
   },
 
   canBuy() {
