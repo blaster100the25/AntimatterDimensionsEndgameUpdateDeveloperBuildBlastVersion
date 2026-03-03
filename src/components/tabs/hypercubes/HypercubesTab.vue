@@ -47,7 +47,7 @@ export default {
       isHepteractAutoUnlocked: false,
       isHepteractAutoActive: false,
       octeractsUnlocked: false,
-      nextTotalCubeBoost: new Decimal(0),
+      nextTotalCubeBoost: 0,
       octeractCost: new Decimal(0),
       totalCubeBoost: new Decimal(0),
       canBuyOcteract: false,
@@ -142,7 +142,7 @@ export default {
       this.isHepteractAutoUnlocked = false;
       this.isHepteractAutoActive = false;
       this.octeractsUnlocked = false;
-      this.nextTotalCubeBoost.copyFrom(Octeracts.eachOcteractBoost);
+      this.nextTotalCubeBoost = Octeracts.eachOcteractBoost;
       this.octeractCost.copyFrom(Octeracts.nextCost);
       this.totalCubeBoost.copyFrom(Octeracts.cubeBoost());
       this.canBuyOcteract = Octeracts.canBuyOcteract;
@@ -215,7 +215,7 @@ export default {
           <p>
             {{ penteractLockString }}
           </p>
-          <p>Reduce Time Dimension threshold softcap by {{ formatPercents(nextFreeTickspeedReduction, 2, 2) }}</p>
+          <p>Reduce Time Dimension threshold softcap by {{ formatPercents(nextFreeTickspeedReduction.toNumber(), 2, 2) }}</p>
           <p><b>Costs: {{ format(penteractCost) }} EP</b></p>
           <p>Total Penteract effect: {{ formatPow(totalFreeTickspeedReduction, 2, 4) }}</p>
         </button>
@@ -232,7 +232,7 @@ export default {
           <p>
             {{ hexeractLockString }}
           </p>
-          <p>Reduce Dark Matter Dimension threshold softcaps by {{ formatPercents(nextDarkMatterSoftcapReduction, 2, 2) }}</p>
+          <p>Reduce Dark Matter Dimension threshold softcaps by {{ formatPercents(nextDarkMatterSoftcapReduction.toNumber(), 2, 2) }}</p>
           <p><b>Costs: {{ format(hexeractCost) }} DM</b></p>
           <p>Total Hexeract effect: {{ formatPow(totalDarkMatterSoftcapReduction, 2, 4) }}</p>
         </button>
@@ -249,7 +249,7 @@ export default {
           <p>
             {{ hepteractLockString }}
           </p>
-          <p>Reduce Celestial Dimension Softcap power by {{ formatPercents(nextCelestialDimSoftcapReduction, 2, 2) }}</p>
+          <p>Reduce Celestial Dimension Softcap power by {{ formatPercents(nextCelestialDimSoftcapReduction.toNumber(), 2, 2) }}</p>
           <p><b>Costs: {{ format(hepteractCost) }} CP</b></p>
           <p>Total Hepteract effect: {{ formatPow(totalCelestialDimSoftcapReduction, 2, 4) }}</p>
         </button>
@@ -266,7 +266,7 @@ export default {
           <p>
             {{ octeractLockString }}
           </p>
-          <p>Increase the strength of all cubes by {{ formatPercents(nextTotalCubeBoost, 2, 2) }}</p>
+          <p>Increase the strength of all cubes by {{ formatPercents(nextTotalCubeBoost.toNumber(), 2, 2) }}</p>
           <p><b>Costs: {{ format(octeractCost) }} ???</b></p>
           <p>Total Octeract effect: {{ formatX(totalCubeBoost, 2, 2) }}</p>
         </button>
