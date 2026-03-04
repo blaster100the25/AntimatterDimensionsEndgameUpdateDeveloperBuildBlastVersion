@@ -1682,7 +1682,7 @@ export const normalAchievements = [
     id: 227,
     name: "How do these work???",
     description: "Obtain a Penteract.",
-    checkRequirement: () => false,//player.endgame.hypercubes.penteracts >= 1,
+    checkRequirement: () => player.endgame.hypercubes.penteracts >= 1,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER
   },
   {
