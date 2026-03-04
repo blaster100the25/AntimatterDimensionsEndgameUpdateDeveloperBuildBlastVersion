@@ -241,7 +241,8 @@ export const FreeTickspeed = {
     // In the following we're implicitly applying the function (ln(x) - priceToCap) / logTickmult to all costs,
     // so, for example, if the cost is 1 that means it's actually exp(priceToCap) * tickmult.
     const desiredCost = logShards.sub(priceToCap).div(logTickmult);
-    const costFormulaCoefficient = new Decimal(FreeTickspeed.GROWTH_RATE).div(FreeTickspeed.GROWTH_EXP).div(logTickmult);
+    const costFormulaCoefficient = new Decimal(FreeTickspeed.GROWTH_RATE).div(FreeTickspeed.GROWTH_EXP).div(logTickmult).times(
+      Decimal.pow(Effects.product(EndgameMastery(103)), 2));
     // In the following we're implicitly subtracting softcap from bought,
     // so, for example, if bought is 1 that means it's actually softcap + 1.
     // The first term (the big one) is the asymptotically more important term (since FreeTickspeed.GROWTH_EXP > 1),
@@ -269,8 +270,7 @@ export const FreeTickspeed = {
     // This undoes the function we're implicitly applying to costs (the "+ 1") is because we want
     // the cost of the next upgrade.
     const next = Decimal.exp(priceToCap.add(boughtToCost(purchases.add(1)).times(logTickmult)));
-    const reductions = Effects.product(EndgameMastery(103));
-    this.multToNext = Decimal.pow(Decimal.exp(boughtToCost(purchases.add(1)).sub(boughtToCost(purchases)).times(logTickmult)), reductions);
+    this.multToNext = Decimal.exp(boughtToCost(purchases.add(1)).sub(boughtToCost(purchases)).times(logTickmult));
     return {
       newAmount: purchases.add(FreeTickspeed.softcap),
       nextShards: next,
