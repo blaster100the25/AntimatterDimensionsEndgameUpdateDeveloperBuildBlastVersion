@@ -153,7 +153,7 @@ class InfinityDimensionState extends DimensionState {
     if (Laitela.continuumActive && !EternityChallenge(8).isRunning && Alpha.currentStage >= 9 && !player.disablePostReality) {
       purchValue = InfinityDimension(tier).continuumValue;
     } else {
-      purchValue = Decimal.floor(this.baseAmount / 10);
+      purchValue = Decimal.floor(this.baseAmount.div(10));
     }
 
     mult = mult.times(Decimal.pow(this.powerMultiplier, purchValue));
@@ -239,7 +239,7 @@ class InfinityDimensionState extends DimensionState {
 
   get purchases() {
     // Because each ID purchase gives 10 IDs
-    return this.data.baseAmount / 10;
+    return this.data.baseAmount.div(10);
   }
 
   get purchaseCap() {
@@ -293,8 +293,8 @@ class InfinityDimensionState extends DimensionState {
   fullReset() {
     this.cost = new Decimal(this.baseCost);
     this.amount = DC.D0;
-    this.bought = 0;
-    this.baseAmount = 0;
+    this.bought = DC.D0;
+    this.baseAmount = DC.D0;
     this.isUnlocked = false;
   }
 
@@ -331,7 +331,7 @@ class InfinityDimensionState extends DimensionState {
     this.cost = Decimal.round(this.cost.times(this.costMultiplier));
     // Because each ID purchase gives 10 IDs
     this.amount = this.amount.plus(10);
-    this.baseAmount += 10;
+    this.baseAmount = this.baseAmount.plus(10);
 
     if (EternityChallenge(8).isRunning) {
       player.eterc8ids -= 1;
@@ -356,20 +356,20 @@ class InfinityDimensionState extends DimensionState {
       purchasesUntilHardcap = Math.clampMax(purchasesUntilHardcap, player.eterc8ids);
     }
 
-    const costScaling = new LinearCostScaling(
+    const costScaling = new DecimalLinearCostScaling(
       Currency.infinityPoints.value,
       this.cost,
       this.costMultiplier,
       purchasesUntilHardcap
     );
 
-    if (costScaling.purchases <= 0) return false;
+    if (costScaling.purchases.lte(0)) return false;
 
     Currency.infinityPoints.purchase(costScaling.totalCost);
     this.cost = this.cost.times(costScaling.totalCostMultiplier);
     // Because each ID purchase gives 10 IDs
-    this.amount = this.amount.plus(10 * costScaling.purchases);
-    this.baseAmount += 10 * costScaling.purchases;
+    this.amount = this.amount.plus(costScaling.purchases.times(10));
+    this.baseAmount = this.baseAmount.plus(costScaling.purchases.times(10));
 
     if (EternityChallenge(8).isRunning) {
       player.eterc8ids -= costScaling.purchases;
