@@ -237,6 +237,8 @@ export default {
           <p>Total Hexeract effect: {{ formatPow(totalDarkMatterSoftcapReduction, 2, 4) }}</p>
         </button>
       </div>
+    </div>
+    <div class="l-hypercubes-container">
       <div class="l-infinity-dim-tab__enslaved-reward-container">
         <button
           class="c-hepteract-button"
