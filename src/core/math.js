@@ -390,6 +390,7 @@ window.DecimalLinearCostScaling = class DecimalLinearCostScaling {
    * @param {Boolean} free signifies if the purchase is free -> if we only need to consider the last cost
    */
   constructor(resourcesAvailable, initialCost, costMultiplier, maxPurchases = DC.BEMAX, free = false) {
+    costMultiplier = new Decimal(costMultiplier);
     if (free) {
       this._purchases = Decimal.clampMax(Decimal.floor(
         resourcesAvailable.div(initialCost).log10().div(
