@@ -479,8 +479,8 @@ export const ra = {
     },
     freeTesseractIncrease: {
       id: 48,
-      reward: "Nameless Level increases the Free Tesseract Softcap",
-      effect: () => player.disablePostReality ? 0 : Math.floor(Ra.pets.enslaved.level) / 5,
+      reward: "Nameless Level increases the Free Tesseract Softcap starting threshold",
+      effect: () => player.disablePostReality ? 0 : 1 + Math.floor(Ra.pets.enslaved.level) / 250,
       pet: "enslaved",
       level: 125,
       displayIcon: `<span class="fas fa-cubes"></span>`,
