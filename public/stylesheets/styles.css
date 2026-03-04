@@ -10492,26 +10492,26 @@ kbd {
 }
 
 .c-hexeract-button--disabled {
-  color: #101010;
+  color: #202020;
   background: black;
   animation: none;
   cursor: default;
 }
 
 .s-base--dark .c-hexeract-button--disabled {
-  color: #202020;
+  color: #808080;
   background: #101010;
   animation: none;
   cursor: default;
 }
 
 .c-hexeract-button--disabled:hover {
-  color: #101010;
+  color: #202020;
   background: black;
 }
 
 .s-base--dark .c-hexeract-button--disabled:hover {
-  color: #202020;
+  color: #808080;
   background: #101010;
 }
 
