@@ -170,6 +170,9 @@ export default {
       this.failedRestriction = status.failedRestriction;
       this.hasMoreCompletions = status.hasMoreCompletions;
       this.nextGoalAt.copyFrom(status.nextGoalAt);
+    },
+    switchToHypercubes() {
+      Tab.endgame.hypercubes.show(true);
     }
   },
 };
