@@ -66,7 +66,7 @@ export default {
       return Autobuyer.tesseract;
     },
     tesseractAutobuyerTextDisplay() {
-      const auto = this.isAutoActive;
+      const auto = this.isTesseractAutoActive;
       return `Auto Tesseract ${auto ? "ON" : "OFF"}`;
     },
     penteractCountString() {
