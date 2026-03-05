@@ -4,6 +4,7 @@ export function celestialDimensionCommonMultiplier() {
   let mult = DC.D1;
   mult = mult.timesEffectsOf(EndgameUpgrade(11));
   mult = mult.times(Ethereal.sectorBoost);
+  mult = mult.times(CelestialDimBoost.multiplierToCDTier());
   return mult;
 }
 
@@ -88,7 +89,7 @@ class CelestialDimensionState extends DimensionState {
 
   get productionPerSecond() {
     let production = this.amount;
-    return production.times(this.multiplier);
+    return production.times(this.multiplier).times(CelestialTickspeed.baseValue);
   }
 
   get multiplier() {
