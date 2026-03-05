@@ -360,7 +360,7 @@ export const CelestialTickspeed = {
   },
 
   get totalUpgrades() {
-    let boughtTickspeed = player.totalTickBought;
+    let boughtTickspeed = player.endgame.celDimExpansion.totalTickBought;
     return new Decimal(boughtTickspeed);
   }
 };
