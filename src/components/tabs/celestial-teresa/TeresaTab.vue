@@ -96,7 +96,7 @@ export default {
       return GameDatabase.celestials.descriptions[0].effects();
     },
     lastMachinesString() {
-      return this.lastMachines.lt(DC.E20000)
+      return this.lastMachines.gte(DC.E20000)
         ? `${quantify("Dual Machine", this.lastMachines.dividedBy(DC.E20000), 2)}`
         : (this.lastMachines.lt(DC.E10000)
           ? `${quantify("Reality Machine", this.lastMachines, 2)}`
