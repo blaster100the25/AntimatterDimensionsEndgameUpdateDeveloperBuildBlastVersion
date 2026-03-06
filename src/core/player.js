@@ -365,6 +365,8 @@ window.player = {
       [DC.BEMAX, Number.MAX_VALUE, DC.D1, 1, "", 0, 0]),
     recentEndgames: Array.range(0, 10).map(() =>
       [DC.BEMAX, Number.MAX_VALUE, DC.D1, DC.D1, 1]),
+    recentCelestialInfinities: Array.range(0, 10).map(() =>
+      [DC.BEMAX, Number.MAX_VALUE, DC.D1, DC.D1]),
     thisInfinity: {
       time: DC.D0,
       realTime: 0,
