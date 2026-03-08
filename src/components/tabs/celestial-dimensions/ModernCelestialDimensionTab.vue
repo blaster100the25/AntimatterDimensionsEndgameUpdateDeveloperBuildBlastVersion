@@ -102,7 +102,8 @@ export default {
       <div>
         <p>
           <span v-if="hasInfinities">
-            You have <span class="c-celestial-infinity-text">{{ format(infinityPoints, 2) }}</span> Celestial Infinity Points.
+            You have <span class="c-celestial-infinity-text">{{ format(infinityPoints, 2) }}</span>
+            {{ pluralize("Celestial Infinity Point", infinityPoints) }}.
           </span>
           <br>
           You have
