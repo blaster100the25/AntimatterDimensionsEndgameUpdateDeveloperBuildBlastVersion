@@ -706,6 +706,7 @@ export function gameLoop(passedDiff, options = {}) {
   // behavior of eternity farming.
   if (!Alpha.isRunning) preProductionGenerateIP(diff);
   if (Alpha.isRunning) preProductionGenerateIP(realDiff);
+  preProductionGenerateCIP(realDiff);
 
   passivePrestigeGen();
 
