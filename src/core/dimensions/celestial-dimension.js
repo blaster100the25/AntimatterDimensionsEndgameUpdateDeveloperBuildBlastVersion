@@ -1,3 +1,4 @@
+import { GameMechanicState, SetPurchasableMechanicState } from "../game-mechanics";
 import { DimensionState } from "./dimension";
 
 export function celestialDimensionCommonMultiplier() {
