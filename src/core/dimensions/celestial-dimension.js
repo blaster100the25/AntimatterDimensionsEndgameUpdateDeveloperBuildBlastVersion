@@ -790,7 +790,7 @@ export function secondSoftCelestialReset() {
 }
 
 export function preProductionGenerateCIP(diff) {
-  if (false) {
+  if (CelestialInfinityUpgrade.cipGen.isBought) {
     const genPeriod = Time.bestCelestialInfinityRealTime.totalMilliseconds.clampMin(1e-100).times(10);
     let genCount;
     if (new Decimal(diff).gte(DC.E100)) {
