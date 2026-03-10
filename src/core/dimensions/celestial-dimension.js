@@ -660,7 +660,7 @@ export class CelestialGalaxy {
 function celestialGalaxyReset() {
   EventHub.dispatch(GAME_EVENT.CELESTIAL_GALAXY_RESET_BEFORE);
   player.endgame.celDimExpansion.galaxies = player.endgame.celDimExpansion.galaxies.add(1);
-  if (false) {
+  if (true) {
     player.endgame.celDimExpansion.dimBoosts = new Decimal(0);
   }
   softCelestialReset(0);
