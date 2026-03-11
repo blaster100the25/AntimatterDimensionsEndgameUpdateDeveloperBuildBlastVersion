@@ -269,7 +269,7 @@ body.t-s12 {
   background: var(--color-base);
   border: 0.1rem solid var(--color-accent);
   border-radius: var(--var-border-radius, 0.4rem);
-  margin-left: -7.7rem;
+  margin-left: -10.2rem;
   transition-duration: 0.2s;
   pointer-events: none;
 }
