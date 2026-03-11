@@ -37,27 +37,29 @@ export default {
 </script>
 
 <template>
-  <div
-    v-if="showContainer"
-    class="c-prestige-button-container"
-  >
-    <div class="c-infinity-points">
-      You have
-      <span class="c-game-header__ip-amount">{{ format(infinityPoints, 2) }}</span>
-      {{ pluralize("Infinity Point", infinityPoints) }}.
-      <span
-        v-if="isTesseractUnlocked"
-        v-html="tesseractText"
-      />
+  <div>
+    <div
+      v-if="showContainer"
+      class="c-prestige-button-container"
+    >
+      <div class="c-infinity-points">
+        You have
+        <span class="c-game-header__ip-amount">{{ format(infinityPoints, 2) }}</span>
+        {{ pluralize("Infinity Point", infinityPoints) }}.
+        <span
+          v-if="isTesseractUnlocked"
+          v-html="tesseractText"
+        />
+      </div>
+      <BigCrunchButton />
     </div>
-    <BigCrunchButton />
-    <div v-if="hasCelestial">
+    <div v-if="showContainer && hasCelestial">
       <br>
       <div class="c-infinity-points">
-      You have
-      <span class="c-game-header__cip-amount">{{ format(celInfinityPoints, 2) }}</span>
-      {{ pluralize("Celestial Infinity Point", celInfinityPoints) }}.
-    </div>
+        You have
+        <span class="c-game-header__cip-amount">{{ format(celInfinityPoints, 2) }}</span>
+        {{ pluralize("Celestial Infinity Point", celInfinityPoints) }}.
+      </div>
     </div>
   </div>
 </template>
