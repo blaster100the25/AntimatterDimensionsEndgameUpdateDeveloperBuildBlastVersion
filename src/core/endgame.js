@@ -344,7 +344,9 @@ export const Endgame = {
     player.celestials.teresa.perkShop[2] = charge3;
     player.celestials.teresa.perkShop[3] = charge4;
     player.celestials.teresa.perkShop[6] = maxPerkCharges;
-    player.celestials.effarig.relicShards = EndgameUpgrade(6).isBought ? DC.E12 : DC.D0;
+    if (!Achievement(223).isUnlocked) {
+      player.celestials.effarig.relicShards = EndgameUpgrade(6).isBought ? DC.E12 : DC.D0;
+    }
     player.celestials.effarig.unlockBits = ExpansionPack.effarigPack.isBought ? 15 : 0;
     player.celestials.effarig.run = false;
     if (!ExpansionPacks.areUnlocked) {
