@@ -165,11 +165,12 @@ export const GlyphGenerator = {
     let bitmask = 0;
     for (const effect of effectList) bitmask |= 1 << effect.bitmaskIndex;
     const glyphLevel = Math.max(player.records.bestReality.glyphLevel, 5000);
+    const rarity = EffarigUnlock.glyphGenerationBoost.isBought ? rarityToStrength(100 + Ra.unlocks.rarityBuff.effectOrDefault(0)) : 3.5;
     return {
       id: undefined,
       idx: null,
       type,
-      strength: 3.5,
+      strength: rarity,
       level: glyphLevel,
       rawLevel: glyphLevel,
       effects: bitmask,
@@ -182,11 +183,12 @@ export const GlyphGenerator = {
     let bitmask = 0;
     for (const effect of effectList) bitmask |= 1 << effect.bitmaskIndex;
     const glyphLevel = Effects.max(1, EndgameMastery(71));
+    const rarity = EffarigUnlock.glyphGenerationBoost.isBought ? rarityToStrength(100 + Ra.unlocks.rarityBuff.effectOrDefault(0)) : 3.5;
     return {
       id: undefined,
       idx: null,
       type,
-      strength: 3.5,
+      strength: rarity,
       level: glyphLevel,
       rawLevel: glyphLevel,
       effects: bitmask,
