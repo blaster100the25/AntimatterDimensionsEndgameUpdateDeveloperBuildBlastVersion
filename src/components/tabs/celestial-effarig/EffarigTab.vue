@@ -154,7 +154,7 @@ export default {
         />
         <EffarigUnlockButton
           v-if="hasSecondShop"
-          v-for="(unlock, i) in shopUnlocks"
+          v-for="(unlock, i) in secondShopUnlocks"
           :key="i"
           :unlock="unlock"
         />
