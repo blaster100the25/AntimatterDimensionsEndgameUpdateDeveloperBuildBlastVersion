@@ -300,7 +300,7 @@ export function getCelestialTickSpeedMultiplier() {
 
 export function buyCelestialTickSpeed() {
   if (!CelestialTickspeed.isAvailableForPurchase || !CelestialTickspeed.isAffordable) return false;
-  Currency.celestialMatter.subtract(CelestialTickspeed.cost);
+  Currency.unnerfedCelestialMatter.subtract(CelestialTickspeed.cost);
   player.endgame.celDimExpansion.totalTickBought = player.endgame.celDimExpansion.totalTickBought.add(1);
   GameUI.update();
   return true;
@@ -315,7 +315,7 @@ export function buyMaxCelestialTickSpeed() {
   if (purchases === null) {
     return;
   }
-  Currency.celestialMatter.subtract(Decimal.pow10(purchases.logPrice));
+  Currency.unnerfedCelestialMatter.subtract(Decimal.pow10(purchases.logPrice));
   player.endgame.celDimExpansion.totalTickBought = player.endgame.celDimExpansion.totalTickBought.add(purchases.quantity);
   boughtTickspeed = true;
 }
