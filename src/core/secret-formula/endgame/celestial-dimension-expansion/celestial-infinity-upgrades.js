@@ -12,7 +12,7 @@ export const celestialInfinityUpgrades = {
     description: () => `Increase the Celestial Dimension Per-Purchase Multiplier to ${formatX(3)}`,
     effect: 3
   },
-  rawCelestialDimMult: {
+  alphaDecayStartBoost: {
     id: 3,
     cost: 20,
     description: () => `Gain a very small boost to Alpha Decay starting time based on Celestial Infinities`,
