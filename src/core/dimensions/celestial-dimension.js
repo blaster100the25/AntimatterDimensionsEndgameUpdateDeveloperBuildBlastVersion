@@ -99,7 +99,7 @@ class CelestialDimensionState extends DimensionState {
     mult = mult.powEffectsOf(SingularityMilestone.dimensionPow, Ra.unlocks.celestialDimensionPower);
     mult = mult.pow(CelestialDimensions.alphaDecayRemnant);
     mult = mult.times(CelestialDimBoost.multiplierToCDTier());
-    mult = mult.timesEffectsOf(CelestialInfinityUpgrade.rawCelestialDimMult, CelestialInfinityUpgrade.antimatterCelestialDimBuff);
+    mult = mult.timesEffectOf(CelestialInfinityUpgrade.antimatterCelestialDimBuff);
     return mult;
   }
 
@@ -277,7 +277,7 @@ export const CelestialDimensions = {
   },
 
   get alphaDecayRemnant() {
-    return Alpha.isDestroyed ? Time.thisEndgameRealTime._ms.div(18000000).min(1) : 1;
+    return Alpha.isDestroyed ? Time.thisEndgameRealTime.totalHours.plusEffectOf(CelestialInfinityUpgrade.alphaDecayStartBoost).min(5).div(5) : 1;
   },
 
   get conversionExponent() {
