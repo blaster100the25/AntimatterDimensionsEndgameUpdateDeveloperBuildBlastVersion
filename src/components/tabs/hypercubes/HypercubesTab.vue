@@ -99,14 +99,6 @@ export default {
       if (this.hepteractsUnlocked) return `Buy a Hepteract (${this.hepteractCountString})`;
       else return `Perform a Celestial Eternity to unlock Hepteracts`;
     },
-    octeractLockString() {
-      if (this.octeractsUnlocked) return `Buy a Octeract (${this.octeractCountString})`;
-      else return `Reach ${wordShift.randomCrossWords("Expanse Transfer")} to unlock Octeracts`;
-    },
-    octeractResourceString() {
-      if (false) return `Expansial Fragments`;
-      else return `${wordShift.randomCrossWords("Expansial Fragments")}`;
-    },
   },
   methods: {
     update() {
@@ -175,7 +167,15 @@ export default {
     handleTesseractAutoToggle(value) {
       Autobuyer.tesseract.isActive = value;
       this.update();
-    }
+    },
+    octeractLockString() {
+      if (this.octeractsUnlocked) return `Buy a Octeract (${this.octeractCountString})`;
+      else return `Reach ${wordShift.randomCrossWords("Expanse Transfer")} to unlock Octeracts`;
+    },
+    octeractResourceString() {
+      if (false) return `Expansial Fragments`;
+      else return `${wordShift.randomCrossWords("Expansial Fragments")}`;
+    },
   }
 };
 </script>
@@ -272,10 +272,10 @@ export default {
           @click="buyOcteract"
         >
           <p>
-            {{ octeractLockString }}
+            {{ octeractLockString() }}
           </p>
           <p>Increase the strength of all cubes by {{ formatPercents(nextTotalCubeBoost, 2, 2) }}</p>
-          <p><b>Costs: {{ format(octeractCost) }} {{ octeractResourceString }}</b></p>
+          <p><b>Costs: {{ format(octeractCost) }} {{ octeractResourceString() }}</b></p>
           <p>Total Octeract effect: {{ formatX(totalCubeBoost, 2, 2) }}</p>
         </button>
       </div>
