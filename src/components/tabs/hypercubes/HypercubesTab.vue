@@ -1,4 +1,6 @@
 <script>
+import wordShift from "@/core/word-shift";
+
 import PrimaryButton from "@/components/PrimaryButton";
 import PrimaryToggleButton from "@/components/PrimaryToggleButton";
 
@@ -99,7 +101,11 @@ export default {
     },
     octeractLockString() {
       if (this.octeractsUnlocked) return `Buy a Octeract (${this.octeractCountString})`;
-      else return `Reach ??? to unlock Octeracts`;
+      else return `Reach ${wordShift.randomCrossWords("Expanse Transfer")} to unlock Octeracts`;
+    },
+    octeractResourceString() {
+      if (false) return `Expansial Fragments`;
+      else return `${wordShift.randomCrossWords("Expansial Fragments")}`;
     },
   },
   methods: {
@@ -269,7 +275,7 @@ export default {
             {{ octeractLockString }}
           </p>
           <p>Increase the strength of all cubes by {{ formatPercents(nextTotalCubeBoost, 2, 2) }}</p>
-          <p><b>Costs: {{ format(octeractCost) }} ???</b></p>
+          <p><b>Costs: {{ format(octeractCost) }} {{ octeractResourceString }}</b></p>
           <p>Total Octeract effect: {{ formatX(totalCubeBoost, 2, 2) }}</p>
         </button>
       </div>
